@@ -3,6 +3,7 @@ import '../../presenter/models/affiliate_model.dart';
 class AffiliateNetwork {
   final String id;
   final String name;
+  final String imageUrl;
   final String? openTime;
   final String? closeTime;
   final bool isFullTimeService;
@@ -14,9 +15,10 @@ class AffiliateNetwork {
   final List<String> services;
   final String state;
 
-  AffiliateNetwork(
+  AffiliateNetwork( 
       {required this.id,
       required this.name,
+      required this.imageUrl,
       required this.openTime,
       required this.closeTime,
       required this.isFullTimeService,
@@ -28,10 +30,11 @@ class AffiliateNetwork {
       required this.services,
       required this.state});
 
-  factory AffiliateNetwork.fromJson(String id, Map<String, dynamic> json) =>
+  factory AffiliateNetwork.fromJson(String id, String imageUrl, Map<String, dynamic> json) =>
       AffiliateNetwork(
         id: id,
         name: json['name'] as String,
+        imageUrl: imageUrl,
         openTime: json['open_time'] as String?,
         closeTime: json['close_time'] as String?,
         isFullTimeService: json['is_full_time_service'] as bool,
@@ -65,6 +68,7 @@ class AffiliateNetwork {
   static AffiliateNetwork fromDomain(Affiliate affiliate) => AffiliateNetwork(
       id: affiliate.id,
       name: affiliate.name,
+      imageUrl: affiliate.imageUrl,
       openTime: affiliate.openTime,
       closeTime: affiliate.closeTime,
       isFullTimeService: affiliate.isFullTimeService,
@@ -81,6 +85,7 @@ extension AffilateExtensions on AffiliateNetwork {
   Affiliate toDomain() => Affiliate(
       id: id,
       name: name,
+      imageUrl: imageUrl,
       openTime: openTime,
       closeTime: closeTime,
       isFullTimeService: isFullTimeService,

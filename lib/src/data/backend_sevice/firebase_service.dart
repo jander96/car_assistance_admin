@@ -10,6 +10,8 @@ class FirebaseService {
 
   Future<List<AffiliateNetwork>> getAllAffiliate() {
     // aqui tengo que combinar el uso de las dos db para obtener datos y fotos de affiliados
+    // Usar el id de mi affiliate para encontrar la url de su imagen en realtime database 
+    // final url = _getImageUrl(doc.id)
     // TODO
     throw UnimplementedError();
   }
@@ -22,6 +24,11 @@ class FirebaseService {
   }
 
   Future<void> deleteAffiliate(String affiliateId){
+    // TODO
+    throw UnimplementedError();
+  }
+
+  Future<String> _getImageUrl(String affiliateId){
     // TODO
     throw UnimplementedError();
   }
