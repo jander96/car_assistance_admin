@@ -1,4 +1,4 @@
-import 'package:car_assistance_admin/src/data/presenter/screens/users_page/users_page.dart';
+import 'package:car_assistance_admin/src/presenter/screens/users_page/users_page.dart';
 import 'package:flutter/material.dart';
 
 import 'affiliates_page/affiliate_page.dart';

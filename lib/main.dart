@@ -1,7 +1,7 @@
 
-import 'package:car_assistance_admin/src/data/presenter/screens/edition_page/edition_page.dart';
-import 'package:car_assistance_admin/src/data/presenter/screens/nav_host.dart';
-import 'package:car_assistance_admin/src/data/presenter/screens/user_details_page/user_details.dart';
+import 'package:car_assistance_admin/src/presenter/screens/edition_page/edition_page.dart';
+import 'package:car_assistance_admin/src/presenter/screens/nav_host.dart';
+import 'package:car_assistance_admin/src/presenter/screens/user_details_page/user_details.dart';
 import 'package:flutter/material.dart';
 
 
