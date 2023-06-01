@@ -48,6 +48,9 @@ class EditionPage extends StatelessWidget {
                 if (isValid) return;
               },
               icon: const Icon(Icons.cloud_upload_outlined)),
+          IconButton(icon: const Icon(Icons.delete_outline), onPressed: (){
+            
+          }),
           IconButton(
               onPressed: () {
                 Navigator.pushNamed(context, 'log', arguments: affiliate);
@@ -266,7 +269,7 @@ class EditionPage extends StatelessWidget {
                     ],
                   ),
                 )),
-            Center(child: Text('edition a $affiliate')),
+            Center(child: affiliate == null ? const Text('new affiliate'): Text('editing to $affiliate')),
           ],
         ),
       ),
