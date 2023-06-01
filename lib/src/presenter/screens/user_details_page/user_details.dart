@@ -7,7 +7,13 @@ class UserDetails extends StatelessWidget {
     final String user = ModalRoute.of(context)?.settings.arguments as String;
     return Scaffold(
       appBar: AppBar(title: const Text('User')),
-      body: Center(child: Text('user details de $user')),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Center(child: Text('user details de $user')),
+          ],
+        ),
+      ),
     );
   }
 }

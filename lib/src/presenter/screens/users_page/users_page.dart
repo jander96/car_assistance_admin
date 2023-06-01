@@ -6,22 +6,22 @@ class UsersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<String> users = [
-      'Pedro hernandez',
-      'Fraancisco Ramirez',
-      'Olga Tanon',
-      'Francisco Perez',
-      'Ignacio Jimenez',
-      'Gaspar Areas',
-      'Osmani Rodriguez',
-      'Ernesto Sosa',
-      'Peter Pan',
-      'Pedro Poll',
-      'Nita Pena',
-      'Armando Paredes',
-      'Gustavo Fraga',
-      'Antonio Martinez',
-      'Elizabet Reyes',
-      'Caridad Rojas'
+      '@Pedrohernandez',
+      '@FraanciscoRamirez',
+      '@OlgaTanon',
+      '@FranciscoPerez',
+      '@IgnacioJimenez',
+      '@GasparAreas',
+      '@OsmaniRodriguez',
+      '@ErnestoSosa',
+      '@PeterPan',
+      '@PedroPoll',
+      '@NitaPena',
+      '@ArmandoParedes',
+      '@GustavoFraga',
+      '@AntonioMartinez',
+      '@ElizabetReyes',
+      '@CaridadRojas'
     ];
     return Scaffold(
       body: Column(
@@ -29,10 +29,31 @@ class UsersPage extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text('Users:',style: TextStyle(fontWeight: FontWeight.bold)),
-              Text('${users.length}'),
-              Text('VIP Users:',style: TextStyle(fontWeight: FontWeight.bold)),
-              Text('${users.length}')
+             Card(
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  children: [
+                     Text('Log Users:',style: TextStyle(fontWeight: FontWeight.bold)),
+                Text('${users.length}'),
+                
+                  ],
+                ),
+              ),
+             ),
+               Card(
+                color: Color.fromARGB(255, 225, 228, 74),
+              child: Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Column(
+                  children: [
+                     Text('VIP Users:',style: TextStyle(fontWeight: FontWeight.bold)),
+                Text('${users.length}'),
+                
+                  ],
+                ),
+              ),
+             )
             ],
           ),
           Expanded(
@@ -41,9 +62,8 @@ class UsersPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 final user = users[index];
                 return ListTile(
-                  leading: Icon(Icons.account_circle_outlined),
+                  leading: const Icon(Icons.account_circle_outlined),
                   title: Text(user),
-                  trailing: Icon(Icons.arrow_right),
                   onTap: () {
                     Navigator.pushNamed(context, 'user_details',arguments: user);
                   },

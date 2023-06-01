@@ -1,5 +1,6 @@
 
 import 'package:car_assistance_admin/src/presenter/screens/edition_page/edition_page.dart';
+import 'package:car_assistance_admin/src/presenter/screens/logger_page/log_page.dart';
 import 'package:car_assistance_admin/src/presenter/screens/nav_host.dart';
 import 'package:car_assistance_admin/src/presenter/screens/user_details_page/user_details.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
       routes: {
         'main':(context) => const NavHost(),
         'affiliate_editor':(context) => const EditionPage(),
-        'user_details':(context) => const UserDetails()
+        'user_details':(context) => const UserDetails(),
+        'log':(context) => const LogPage()
       },
     );
   }
