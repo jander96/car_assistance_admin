@@ -4,15 +4,29 @@ import 'package:flutter/material.dart';
 class EditionPage extends StatelessWidget {
   const EditionPage({super.key});
 
+  void autocomplete(String? field, TextEditingController controller) {
+    if (field == null) return;
+    controller.text = field;
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     final String? affiliate =
         ModalRoute.of(context)?.settings.arguments as String?;
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
+    final nameController = TextEditingController();
     final openController = TextEditingController();
     final closeController = TextEditingController();
+    final phoneController = TextEditingController();
+    final latController = TextEditingController();
+    final longController = TextEditingController();
+    final addressController = TextEditingController();
+    final servicesController = TextEditingController();
     final stateController = TextEditingController();
+
+    autocomplete(affiliate, nameController);
+
     String name = "";
     String? opentime;
     String? closeTime;
@@ -30,7 +44,7 @@ class EditionPage extends StatelessWidget {
         actions: [
           IconButton(
               onPressed: () {
-                final isValid = _formKey.currentState!.validate();
+                final isValid = formKey.currentState!.validate();
                 if (isValid) return;
               },
               icon: const Icon(Icons.cloud_upload_outlined)),
@@ -56,13 +70,14 @@ class EditionPage extends StatelessWidget {
                   icon: const Icon(Icons.photo_album_outlined))
             ]),
             Form(
-                key: _formKey,
+                key: formKey,
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       _TextField(
+                        controller: nameController,
                         label: Text('name'),
                         onChanged: (value) {
                           name = value;
@@ -134,6 +149,7 @@ class EditionPage extends StatelessWidget {
                         ),
                       ),
                       _TextField(
+                        controller: phoneController,
                         label: Text('phone'),
                         textInputType: TextInputType.phone,
                         onChanged: (value) {
@@ -153,6 +169,7 @@ class EditionPage extends StatelessWidget {
                           Expanded(
                               flex: 1,
                               child: _TextField(
+                                controller: latController,
                                 label: Text('lat'),
                                 textInputType: TextInputType.number,
                                 onChanged: (value) {
@@ -173,6 +190,7 @@ class EditionPage extends StatelessWidget {
                           Expanded(
                               flex: 1,
                               child: _TextField(
+                                controller: longController,
                                 label: Text('long'),
                                 textInputType: TextInputType.number,
                                 onChanged: (value) {
@@ -190,6 +208,7 @@ class EditionPage extends StatelessWidget {
                         ],
                       ),
                       _TextField(
+                        controller: addressController,
                         label: Text('address'),
                         onChanged: (value) {
                           address = value;
@@ -204,6 +223,7 @@ class EditionPage extends StatelessWidget {
                         },
                       ),
                       _TextField(
+                        controller: servicesController,
                         label: Text('services'),
                         onChanged: (value) {
                           services = value;
