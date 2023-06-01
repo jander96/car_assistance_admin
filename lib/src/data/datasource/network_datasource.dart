@@ -1,6 +1,7 @@
 import 'package:car_assistance_admin/src/data/backend_sevice/firebase_service.dart';
 
 import '../models/data_affiliate_model.dart';
+import '../models/data_log_model.dart';
 import '../models/data_user_model.dart';
 
 class NetworkDataSource {
@@ -25,5 +26,9 @@ class NetworkDataSource {
 
   Future<void> deleteUser(String userId) {
     return _backendService.deleteUser(userId);
+  }
+
+  Future<List<LogUserNetwork>> getLog(String affiliateId) {
+    return _backendService.getLog(affiliateId);
   }
 }

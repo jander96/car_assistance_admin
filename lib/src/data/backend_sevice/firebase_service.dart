@@ -1,4 +1,5 @@
 import '../models/data_affiliate_model.dart';
+import '../models/data_log_model.dart';
 import '../models/data_user_model.dart';
 
 class FirebaseService {
@@ -40,6 +41,13 @@ class FirebaseService {
     throw UnimplementedError();
   }
   Future<void> deleteUser(String userId){
+    // TODO
+    throw UnimplementedError();
+  }
+
+  // --------------------Log operations --------------------------
+
+  Future<List<LogUserNetwork>> getLog(String affiliateId){
     // TODO
     throw UnimplementedError();
   }
