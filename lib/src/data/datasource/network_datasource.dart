@@ -6,7 +6,9 @@ import '../models/data_user_model.dart';
 
 class NetworkDataSource {
   final FirebaseService _backendService;
-  NetworkDataSource() : _backendService = FirebaseService();
+  
+  NetworkDataSource()
+      : _backendService = FirebaseService();
 
   Future<List<AffiliateNetwork>> getAllAffiliate() {
     return _backendService.getAllAffiliate();

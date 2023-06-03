@@ -28,34 +28,37 @@ class AffiliatesPage extends StatelessWidget {
     return Scaffold(
         body: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Row(
-                  children: [
-                    const Text(
-                      'Total:',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(width: 16,),
-                    Text('${affiliates.length} affiliates'),
-                  ],
-                ),
-                GestureDetector(
-                  child: const Icon(Icons.search),
-                  onTap: () {
-                    showSearch(
-                        context: context,
-                        delegate: SearchAffiliateDelegate(
-                          affiliates: [],
-                        )).then((affiliate) {
-                      if (affiliate != null){
-                        Navigator.pushNamed(context, 'affiliate_editor',
-                            arguments: affiliate);}
-                    });
-                  },
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Row(
+                    children: [
+                      const Text(
+                        'Total:',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(width: 16,),
+                      Text('${affiliates.length} affiliates'),
+                    ],
+                  ),
+                  GestureDetector(
+                    child: const Icon(Icons.search),
+                    onTap: () {
+                      showSearch(
+                          context: context,
+                          delegate: SearchAffiliateDelegate(
+                            affiliates: [],
+                          )).then((affiliate) {
+                        if (affiliate != null){
+                          Navigator.pushNamed(context, 'affiliate_editor',
+                              arguments: affiliate);}
+                      });
+                    },
+                  )
+                ],
+              ),
             ),
             Expanded(
               child: ListView.builder(

@@ -15,7 +15,7 @@ class AffiliateNetwork {
   final List<String> services;
   final String state;
 
-  AffiliateNetwork( 
+  AffiliateNetwork(
       {required this.id,
       required this.name,
       required this.imageUrl,
@@ -30,11 +30,11 @@ class AffiliateNetwork {
       required this.services,
       required this.state});
 
-  factory AffiliateNetwork.fromJson(String id, String imageUrl, Map<String, dynamic> json) =>
+  factory AffiliateNetwork.fromJson(String id, Map<String, dynamic> json) =>
       AffiliateNetwork(
         id: id,
         name: json['name'] as String,
-        imageUrl: imageUrl,
+        imageUrl: json['image_ulr'] as String,
         openTime: json['open_time'] as String?,
         closeTime: json['close_time'] as String?,
         isFullTimeService: json['is_full_time_service'] as bool,
@@ -48,21 +48,51 @@ class AffiliateNetwork {
             .toList(),
         state: json['state'] as String,
       );
+  AffiliateNetwork copyWith({
+    String? id,
+    String? name,
+    String? imageUrl,
+    String? openTime,
+    String? closeTime,
+    bool? isFullTimeService,
+    String? phoneNumber,
+    double? rating,
+    double? lat,
+    double? long,
+    String? address,
+    List<String>? services,
+    String? state,
+  }) =>
+      AffiliateNetwork(
+          id: id ?? this.id,
+          name: name ?? this.name,
+          imageUrl: imageUrl ?? this.imageUrl,
+          openTime: openTime ?? this.openTime,
+          closeTime: closeTime ?? this.closeTime,
+          isFullTimeService: isFullTimeService ?? this.isFullTimeService,
+          phoneNumber: phoneNumber ?? this.phoneNumber,
+          rating: rating ?? this.rating,
+          lat: lat ?? this.lat,
+          long: long ?? this.long,
+          address: address ?? this.address,
+          services: services ?? this.services,
+          state: state ?? this.state);
 
-  Map<String, dynamic> affiliateNetworkToJson(AffiliateNetwork affiliate) =>
+  Map<String, dynamic> toMapJson() =>
       <String, dynamic>{
-        'id': affiliate.id,
-        'name': affiliate.name,
-        'open_time': affiliate.openTime,
-        'close_time': affiliate.closeTime,
-        'is_full_time_service': affiliate.isFullTimeService,
-        'phone_number': affiliate.phoneNumber,
-        'rating': affiliate.rating,
-        'lat': affiliate.lat,
-        'long': affiliate.long,
-        'address': affiliate.address,
-        'services': affiliate.services,
-        'state': affiliate.state,
+        'id': id,
+        'name': name,
+        'image_url' : imageUrl,
+        'open_time': openTime,
+        'close_time': closeTime,
+        'is_full_time_service': isFullTimeService,
+        'phone_number': phoneNumber,
+        'rating': rating,
+        'lat': lat,
+        'long': long,
+        'address': address,
+        'services': services,
+        'state': state,
       };
 
   static AffiliateNetwork fromDomain(Affiliate affiliate) => AffiliateNetwork(
