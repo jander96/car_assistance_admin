@@ -34,6 +34,7 @@ class FirebaseService {
       return uri;
     } else {
       final file = _fileDataSource.getFile(uri);
+      final fileName = uri.split('/').last;
       // con este file primero lo subo a store
       // final response  = await _realdatabase.post(file)
       // obtener url de la respuesta

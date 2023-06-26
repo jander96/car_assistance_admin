@@ -1,8 +1,11 @@
 import 'package:car_assistance_admin/src/presenter/widget/dropdown.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../route_names.dart';
+
 class EditionPage extends StatelessWidget {
-  const EditionPage({super.key});
+  final String? affiliate;
+  const EditionPage({super.key, this.affiliate});
 
   void autocomplete(String? field, TextEditingController controller) {
     if (field == null) return;
@@ -12,8 +15,7 @@ class EditionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
-    final String? affiliate =
-        ModalRoute.of(context)?.settings.arguments as String?;
+    
     final formKey = GlobalKey<FormState>();
     final nameController = TextEditingController();
     final openController = TextEditingController();
@@ -48,12 +50,10 @@ class EditionPage extends StatelessWidget {
                 if (isValid) return;
               },
               icon: const Icon(Icons.cloud_upload_outlined)),
-          IconButton(icon: const Icon(Icons.delete_outline), onPressed: (){
-            
-          }),
+          IconButton(icon: const Icon(Icons.delete_outline), onPressed: () {}),
           IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, 'log', arguments: affiliate);
+                Navigator.pushNamed(context, RouteName.log, arguments: affiliate);
               },
               icon: const Icon(Icons.receipt_long_outlined))
         ],
@@ -269,7 +269,10 @@ class EditionPage extends StatelessWidget {
                     ],
                   ),
                 )),
-            Center(child: affiliate == null ? const Text('new affiliate'): Text('editing to $affiliate')),
+            Center(
+                child: affiliate == null
+                    ? const Text('new affiliate')
+                    : Text('editing to $affiliate')),
           ],
         ),
       ),

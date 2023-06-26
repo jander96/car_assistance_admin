@@ -1,3 +1,4 @@
+import 'package:car_assistance_admin/route_names.dart';
 import 'package:flutter/material.dart';
 
 import '../../delegates/search_delegate_affiliate.dart';
@@ -52,7 +53,7 @@ class AffiliatesPage extends StatelessWidget {
                             affiliates: [],
                           )).then((affiliate) {
                         if (affiliate != null){
-                          Navigator.pushNamed(context, 'affiliate_editor',
+                          Navigator.pushNamed(context, RouteName.affiliateEditor,
                               arguments: affiliate);}
                       });
                     },
